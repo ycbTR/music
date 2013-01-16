@@ -1,0 +1,13 @@
+$("#spotify_loading").css("display","none");
+$("#spotify_result_count").text("<%=@playlist.count%> Results");
+<%if @playlist.count == 0 %>
+$("#spotify_results").html("<p>No results found.</p>");
+<%else%>
+$("#spotify_results").html("<ul id='spotify_result_list' class='result-list'></ul>");
+<%end%>
+<%@playlist.each do |song| %>
+ $("#spotify_result_list").append("<li>\
+				<a href='http://open.spotify.com/track/<%=song['href'].split(":")[2]%>' target='m'><%=song['artists'][0]['name']%> - <%=song['name']%></a>\
+				<span class='album'><%=song['album']['name']%></span>\
+			</li>");
+<%end%>
