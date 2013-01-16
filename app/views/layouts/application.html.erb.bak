@@ -9,7 +9,8 @@
     <meta name="author" content="">
 
   <%= stylesheet_link_tag    "application","bootstrap","bootstrap-responsive", :media => "all" %>
-  <%= javascript_include_tag "application","bootstrap-transition","bootstrap-aler","bootstrap-modal","bootstrap-dropdown","bootstrap-scrollspy","bootstrap-tab","bootstrap-tooltip","bootstrap-button","bootstrap-collapse","bootstrap-carousel","bootstrap-typeahead","jquery.nicescroll.min" %>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <%= javascript_include_tag "bootstrap-transition","bootstrap-aler","bootstrap-modal","bootstrap-dropdown","bootstrap-scrollspy","bootstrap-tab","bootstrap-tooltip","bootstrap-button","bootstrap-collapse","bootstrap-carousel","bootstrap-typeahead","jquery.nicescroll.min" %>
 
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
