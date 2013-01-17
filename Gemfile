@@ -6,6 +6,7 @@ gem 'rails', '3.2.6'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'sqlite3'
+gem 'pg'
 
 gem 'json'
 
@@ -26,7 +27,9 @@ gem 'jquery-rails'
 gem 'soundcloud'
 
 
-gem 'pg'
+
+
+gem 'xml-simple'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

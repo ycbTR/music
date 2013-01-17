@@ -198,16 +198,19 @@ font-size: 66%;
 		//alert($(window).height());
 		//$("#footer").css("margin-top","500px");
 
-		$(".navbar-form").submit(function(){
+		$(".navbar-form").submit(function(e){
 			$("#grooveshark_loading").css("display","block");
 			$("#spotify_loading").css("display","block");
 			$("#soundcloud_loading").css("display","block");
 			$("#rdio_loading").css("display","block");
+			$("#youtube_loading").css("display","block");
 			
 			$.ajax({url:"/search?keyword="+$(".search-query").val(),type:"POST"});
 			$.ajax({url:"/search_spotify?keyword="+$(".search-query").val(),type:"POST"});
 			$.ajax({url:"/search_soundcloud?keyword="+$(".search-query").val(),type:"POST"});
 			$.ajax({url:"/search_rdio?keyword="+$(".search-query").val(),type:"POST"});
+			$.ajax({url:"/search_youtube?keyword="+$(".search-query").val(),type:"POST"});
+			e.preventDefault();
 		});
 	});
 	</script>

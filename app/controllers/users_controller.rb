@@ -1,5 +1,6 @@
 require "open-uri"
 require "rdio.rb"
+require "xmlsimple"
 
 class UsersController < ApplicationController
 
@@ -85,5 +86,24 @@ class UsersController < ApplicationController
      end
   end
 
+
+  def search_youtube
+
+	keyword = params[:keyword].split.join('%2C')
+	#uri = "http://gdata.youtube.com/feeds/api/videos/-/music%7Csongs/#{keyword}?v=2&start-index=1&max-results=100"
+	uri = "http://gdata.youtube.com/feeds/api/videos?category=#{keyword}%2Cmusic%7Csongs&v=2"
+	puts "URI #{uri}"
+	begin
+	entries=open(uri).read
+	puts "entries #{entries}"
+	@playlist = XmlSimple.xml_in(entries)["entry"]
+	rescue Exception=>e
+		puts "EXCEPTION :: #{e.message}"
+	end
+     respond_to do |format|
+      format.js
+     end
+
+  end
 
 end
