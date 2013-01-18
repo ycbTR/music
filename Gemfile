@@ -27,8 +27,6 @@ gem 'jquery-rails'
 gem 'soundcloud'
 
 
-
-
 gem 'xml-simple'
 
 # To use ActiveModel has_secure_password

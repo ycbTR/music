@@ -4,8 +4,20 @@ require "xmlsimple"
 
 class UsersController < ApplicationController
 
-  def index
+  layout "front_layout",:only=>[:home]
+
+  def home 
+	
   end
+
+  def index
+       if params[:search_fild].nil?
+	redirect_to root_path
+       else
+        session[:keyword] = params[:search_fild]
+       end
+  end
+
   def search
 
 	keyword = params[:keyword].split.join('%20')

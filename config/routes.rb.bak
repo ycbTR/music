@@ -1,4 +1,6 @@
 Musicmasti::Application.routes.draw do
+
+  get "users/home"
   get "users/index"
   post "users/search"
   post "users/search_spotify"
@@ -12,6 +14,8 @@ Musicmasti::Application.routes.draw do
   match "/search_soundcloud", :to=>"users#search_soundcloud"
   match "/search_rdio", :to=>"users#search_rdio"
   match "/search_youtube", :to=>"users#search_youtube"
+
+  root :to=>"users#home"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
