@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html  lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+  <title>music search engine</title>
+
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+  <%= stylesheet_link_tag  "style", :media => "all" %>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+	<script>
+	$(document).ready(function(){
+		//$("html").niceScroll(); 
+		//alert($(window).height());
+		//$("#footer").css("margin-top","500px");
+
+		<%if session[:keyword]%>
+		       alert("A");
+		        $("#search-query").val("<%=session[:keyword]%>");
+
+ 		        //$("#grooveshark_loading").css("display","block");
+			$("#spotify_loading").css("display","block");
+			//$("#soundcloud_loading").css("display","block");
+			//$("#rdio_loading").css("display","block");
+			//$("#youtube_loading").css("display","block");
+			
+			//$.ajax({url:"/search?keyword="+$("#search-query").val(),type:"POST"});
+			$.ajax({url:"/search_spotify?keyword="+$("#search-query").val(),type:"POST"});
+			//$.ajax({url:"/search_soundcloud?keyword="+$("#search-query").val(),type:"POST"});
+			//$.ajax({url:"/search_rdio?keyword="+$("#search-query").val(),type:"POST"});
+			//$.ajax({url:"/search_youtube?keyword="+$("#search-query").val(),type:"POST"});
+		<%end%>
+
+		$(".navbar-form").submit(function(e){
+			//$("#grooveshark_loading").css("display","block");
+			$("#spotify_loading").css("display","block");
+			//$("#soundcloud_loading").css("display","block");
+			//$("#rdio_loading").css("display","block");
+			//$("#youtube_loading").css("display","block");
+			
+			//$.ajax({url:"/search?keyword="+$("#search-query").val(),type:"POST"});
+			$.ajax({url:"/search_spotify?keyword="+$("#search-query").val(),type:"POST"});
+			//$.ajax({url:"/search_soundcloud?keyword="+$("#search-query").val(),type:"POST"});
+			//$.ajax({url:"/search_rdio?keyword="+$("#search-query").val(),type:"POST"});
+			//$.ajax({url:"/search_youtube?keyword="+$("#search-query").val(),type:"POST"});
+			e.preventDefault();
+		});
+	});
+	</script>
+
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= yield %>
+</body>
+</html>

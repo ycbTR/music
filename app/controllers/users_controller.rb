@@ -4,7 +4,8 @@ require "xmlsimple"
 
 class UsersController < ApplicationController
 
-  layout "front_layout",:only=>[:home]
+ # layout "back_layout", :only=>[:index]
+  layout "front_layout", :only=>[:home]
 
   def home 
 	

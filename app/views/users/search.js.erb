@@ -7,7 +7,8 @@ $("#grooveshark_results").html("<ul id='grooveshark_result_list' class='result-l
 <%end%>
 <%@playlist.each do |song| %>
  $("#grooveshark_result_list").append("<li>\
-				<a href='<%=song['Url']%>' target='m'><%=song['ArtistName']%> - <%=song['SongName']%></a>\
-				<span class='album'><%=song['AlbumName']%></span>\
-			</li>");
+                            <a href='<%=song['Url']%>' target='m'><%=song['ArtistName']%> - <%=song['SongName']%></a>\
+                            <p><%=song['AlbumName']%></p>\
+                            <div class='clear'></div>\
+                        </li>");
 <%end%>

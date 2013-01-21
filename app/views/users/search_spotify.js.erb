@@ -7,7 +7,10 @@ $("#spotify_results").html("<ul id='spotify_result_list' class='result-list'></u
 <%end%>
 <%@playlist.each do |song| %>
  $("#spotify_result_list").append("<li>\
-				<a href='http://open.spotify.com/track/<%=song['href'].split(":")[2]%>' target='m'><%=song['artists'][0]['name']%> - <%=song['name']%></a>\
-				<span class='album'><%=song['album']['name']%></span>\
-			</li>");
+                            <a href='http://open.spotify.com/track/<%=song['href'].split(":")[2]%>' target='m'><%=song['artists'][0]['name']%> - <%=song['name']%></a>\
+                            <p><%=song['album']['name']%></p>\
+                            <div class='clear'></div>\
+                        </li>");
+ 
+
 <%end%>

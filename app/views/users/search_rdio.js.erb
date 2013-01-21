@@ -7,7 +7,8 @@ $("#rdio_results").html("<ul id='rdio_result_list' class='result-list'></ul>");
 <%end%>
 <%@playlist.each do |song| %>
  $("#rdio_result_list").append("<li>\
-				<a href='<%=song['shortUrl']%>' target='m'><%=song['artist']%>-<%=song['name']%></a>\
-				<span class='album'><%=song['album']%></span>\
-			</li>");
+                            <a href='<%=song['shortUrl']%>' target='m'><%=song['artist']%>-<%=song['name']%></a>\
+                            <p><%=song['album']%></p>\
+                            <div class='clear'></div>\
+                        </li>");
 <%end%>

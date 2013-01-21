@@ -50,8 +50,28 @@ table {
 /*----------------------------------------------
 				  typography
 -----------------------------------------------*/
+@font-face {
+    font-family: 'MyriadProCondensed';
+    src: url('font/myriadprocond-webfont.eot');
+    src: url('font/myriadprocond-webfont.woff') format('woff'),
+	url('font/myriadprocond-webfont.ttf') format('truetype'), 
+	url('font/myriadprocond-webfont.svgz#MyriadProCondensed') format('svg'), 
+	url('font/myriadprocond-webfont.svg#MyriadProCondensed') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MyriadProBoldCondensed';
+    src: url('font/myriadproboldcond-webfont.eot');
+    src: url('font/myriadproboldcond-webfont.woff') format('woff') 
+	url('font/myriadproboldcond-webfont.ttf') format('truetype'), 
+	url('font/myriadproboldcond-webfont.svgz#MyriadProBoldCondensed') format('svg'), 
+	url('font/myriadproboldcond-webfont.svg#MyriadProBoldCondensed') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 body{
-	background:url(background.jpg) repeat;
+	background:#000 url(background.jpg) no-repeat top center;
 	font-size:100%;
     font-family:Georgia, "Times New Roman", Times, serif;
 	color:#000;
@@ -75,32 +95,35 @@ body{
 }
 #logo{
 	margin: 9% auto 50px;
-	width:312px;
+	width:439px;
 	height:auot;
 }
 #logo h2{
 	font-family:Georgia, "Times New Roman", Times, serif;
-	font-size:18px;
+	font-size:24px;
 	font-weight:normal;
 	font-style:italic;
-	color:#646464;
+	color:#fff;
 	text-align:center;
-	margin:15px 0 0;
+	margin:20px 0 0;
 }
 .search_box{
 	background:url(search_box.png) no-repeat;
-	width:580px;
-	height:95px;
-	margin:0 auto 45px;
+	width:532px;
+	height:68px;
+	margin:0 auto 22px;
 }
 .search_fild{
 	background: none;
     border: medium none;
     height: 28px;
-    margin: 6px 0 0 25px;
+    margin: 10px 0 0 25px;
     padding: 5px 0;
     width: 455px;
 	outline:none;
+	font-size:18px;
+	color:#c0c0c0;
+	font-style:italic;
 }
 .search_btn{
 	background: none;
@@ -110,34 +133,36 @@ body{
     font-family: Myriad Pro;
     font-size: 20px;
     font-weight: normal;
-    margin: 5px 0 0 7px;
     outline: medium none;
     padding: 9px 0 8px 4px;
     text-transform: uppercase;
 	letter-spacing:-1px;
+	width:40px;
 }
 #footer{
-	height:120px;
-	background:rgba(19, 19, 19, .3);
-	padding:25px 0 20px;
+	background:url(footer-bg.png) repeat top center;
+	padding:32px 0 30px;
+	border-top:1px solid #1d1d1d;
+	border-bottom:1px solid #1d1d1d;
+	margin-bottom:20px;
 }
 .logo_holder{
-	background:url(logo_holder.png) no-repeat;
-	width:497px;
-	height:42px;
+	width:540px;
 	margin:0 auto;
-	padding:11px 40px 0;
+	border-bottom:1px solid #000000;
+	padding-bottom:30px;
 }
 .logo_holder ul{
 	list-style:none;
 }
 .logo_holder ul li{
 	float:left;
-	margin:0 12px;
+	margin:0 8px;
 }
 .social{
-	width:305px;
+	width:540px;
 	margin:0 auto;
+	border-top:1px solid #1d1d1d;
 }
 .social ul{
 	list-style:none;
@@ -145,6 +170,13 @@ body{
 .social ul li{
 	float:left;
 	margin:25px 8px 0;
+}
+.social ul li.stay{
+	font-size:18px;
+	color:#fff;
+	text-transform:uppercase;
+	padding:10px 0;
+	margin-right:94px;
 }
 a.fb{
 	display:inline-block;
@@ -215,6 +247,7 @@ a.sll:hover{
 /*-----------------------------------List Page----------------------------------*/
 #header_inner{
 	height:150px;
+	background:url(inner-header.jpg) no-repeat top center;
 }
 #logo_inner{
 	float:left;
@@ -244,6 +277,7 @@ a.sll:hover{
 .list_body{
 	min-height:700px;
 	background:url(list-page-bg.png) repeat;
+	padding-bottom:22px;
 }
 #footer_inner{
 	height:120px;
@@ -263,4 +297,105 @@ a.sll:hover{
 .logo_holder_inner ul li{
 	float:left;
 	margin:0 12px;
+}
+/*-----------------------------------top-navigation----------------------------------*/
+.top-nav{
+	border-bottom:1px solid #e4e4e4;
+	width:100%;
+	padding:35px 0 0 0;
+}
+.top-nav ul li{
+	float:left;
+}
+.top-nav ul li a{
+	display:block;
+	font-family: 'MyriadProCondensed';
+	font-size:20px;
+	color:#6f6f6f;
+	text-shadow:#6f6f6f;
+	text-transform:uppercase;
+	text-decoration:none;
+	margin:0 15px;
+	padding-bottom:15px;
+	position:relative;
+}
+
+.top-nav ul li a:hover{
+	color:#e44029;
+	border-bottom:1px solid #e44029;
+	padding-bottom:14px;
+}
+.content{
+	border-left:1px solid #d4d4d4;
+	border-right:1px solid #d4d4d4;
+	border-bottom:1px solid #d4d4d4;
+	border-radius:5px;
+	margin-top:22px;
+	background:url(contentbg.png) repeat;
+}
+.heading{
+	padding:10px 15px;
+	border-top:1px solid #d4d4d4;
+	border-bottom:1px solid #d4d4d4;
+	background:#fff;
+	border-radius:5px 5px 0 0;
+}
+.heading h2{
+	float:left;
+	font-size:24px;
+    font-family: 'MyriadProBoldCondensed';
+	text-transform:uppercase;
+	color:#545454;
+	background:url(logo2.png) no-repeat left;
+	padding:5px 0 5px 42px;
+	height:27px;
+	font-weight:bold;
+}
+.heading p{
+	float:right;
+	font-family:Calibri, Arial, Helvetica, sans-serif;
+	color:#adadad;
+	font-size:14px;
+	padding-top:12px;
+}
+.heading p span{
+	color:#e03f29;
+}
+.listing-area{
+	padding:10px 20px;
+}
+.listing-area ul li{
+	border-bottom:1px solid #d4d4d4;
+	border-top:1px solid #fdfdfd;
+	padding:7px 0;
+}
+.listing-area ul li:first-child{
+	border-top:none;
+}
+.listing-area ul li:last-child{
+	border-bottom:none;
+}
+.listing-area ul li a{
+	display:inline-block;
+	float:left;
+	color:#14afef;
+	text-decoration:none;
+}
+.listing-area ul li a:hover{
+	color:#545454;
+}
+.listing-area ul li p{
+	float:right;
+	width:580px;
+	font-family:Calibri, Arial, Helvetica, sans-serif;
+	color:#b0b0b0;
+	font-size:14px;
+}
+
+
+.selected
+{
+	color: #e44029;
+	border-bottom: 1px solid #e44029;
+	padding-bottom: 14px;
 }
