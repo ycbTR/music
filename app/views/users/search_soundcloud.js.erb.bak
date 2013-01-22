@@ -13,5 +13,3 @@ $("#soundcloud_results").html("<ul id='soundcloud_result_list' class='result-lis
                         </li>");
 <%end%>
 
-$('.listing-area p').ellipsis();
-$('.listing-area ul li a').ellipsis();

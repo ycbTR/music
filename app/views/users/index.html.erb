@@ -1,5 +1,5 @@
 
-	<div id="header_inner">
+	<div id="header_inner" style="position: fixed; width: 100%;z-index:1000;">
     	<div class="wrapper">
             <div id="logo_inner">
                 <h1><a href="#"><%=image_tag("logo_inner.png",:alt=>"")%></a></h1>
@@ -16,7 +16,7 @@
     </div><!-- #main -->
     <div class="list_body">
     	<div class="wrapper">
-        	<div class="top-nav">
+        	<div class="top-nav" style="padding-top:180px;">
             	<ul>
                 	<li><a class="selected" id="mnuSpotify" href="#">Spotify</a></li>
                 	<li><a id="mnuGrooveshark" href="#">Grooveshark</a></li>
@@ -31,16 +31,15 @@
 
             <div class="content" id="spotify">
             	<div class="heading">
-            		<h2 style="background:url(assets/logo1.png) no-repeat left">Spotify</h2>
+            		<a href="http://www.spotify.com" target="m"><h2 style="background:url(assets/logo1.png) no-repeat left">Spotify</h2></a>
                     <p>Show in <span id="spotify_result_count">No Results</span></p>
                 <div class="clear"></div>
                 </div><!--heading-->
 
 		<div id="spotify_loading" class="loading" style="display: none;">
-			<img class="spinner" src="images/spinner.gif">
+			<%=image_tag("ajax-loader_transparent.gif")%>
 		</div>
                 <div class="listing-area" id="spotify_results">
-		    <p>No results found.</p>
                    <!-- <ul>
                     	<li>
                             <a href="#">Bon Jovi</a>
@@ -59,61 +58,57 @@
 
 	    <div class="content" id="grooveshark" style="display:none">
             	<div class="heading">
-            		<h2 style="background:url(assets/logo2.png) no-repeat left">GrooveShark</h2>
+            		<a href="http://www.grooveshark.com" target="m"><h2 style="background:url(assets/logo2.png) no-repeat left">GrooveShark</h2></a>
                     <p>Show in <span id="grooveshark_result_count">No Results</span></p>
                 <div class="clear"></div>
                 </div><!--heading-->
 
 		<div id="grooveshark_loading" class="loading" style="display: none;">
-			<img class="spinner" src="images/spinner.gif">
+			<%=image_tag("ajax-loader_transparent.gif")%>
 		</div>
                 <div class="listing-area" id="grooveshark_results">
-		    <p>No results found.</p>
                 </div><!--listing-area-->
             </div><!--content-->
 
 	    <div class="content" id="soundcloud" style="display:none">
             	<div class="heading">
-            		<h2 style="background:url(assets/logo3.png) no-repeat left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SoundCloud</h2>
+            		<a href="http://www.soundcloud.com" target="m"><h2 style="background:url(assets/logo3.png) no-repeat left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SoundCloud</h2></a>
                     <p>Show in <span id="soundcloud_result_count">No Results</span></p>
                 <div class="clear"></div>
                 </div><!--heading-->
 
 		<div id="soundcloud_loading" class="loading" style="display: none;">
-			<img class="spinner" src="images/spinner.gif">
+			<%=image_tag("ajax-loader_transparent.gif")%>
 		</div>
                 <div class="listing-area" id="soundcloud_results">
-		    <p>No results found.</p>
                 </div><!--listing-area-->
             </div><!--content-->
 
 	    <div class="content" id="youtube" style="display:none">
             	<div class="heading">
-            		<h2 style="background:url(assets/logo4.png) no-repeat left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+            		<a href="http://www.youtube.com" target="m"><h2 style="background:url(assets/logo4.png) no-repeat left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2></a>
                     <p>Show in <span id="youtube_result_count">No Results</span></p>
                 <div class="clear"></div>
                 </div><!--heading-->
 
 		<div id="youtube_loading" class="loading" style="display: none;">
-			<img class="spinner" src="images/spinner.gif">
+			<%=image_tag("ajax-loader_transparent.gif")%>
 		</div>
                 <div class="listing-area" id="youtube_results">
-		    <p>No results found.</p>
                 </div><!--listing-area-->
             </div><!--content-->
 
 	    <div class="content" id="rdio" style="display:none">
             	<div class="heading">
-            		<h2 style="background:url(assets/logo5.png) no-repeat left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+            		<a href="http://www.rdio.com" target="m"><h2 style="background:url(assets/logo5.png) no-repeat left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2></a>
                     <p>Show in <span id="rdio_result_count">No Results</span></p>
                 <div class="clear"></div>
                 </div><!--heading-->
 
 		<div id="rdio_loading" class="loading" style="display: none;">
-			<img class="spinner" src="images/spinner.gif">
+			<%=image_tag("ajax-loader_transparent.gif")%>
 		</div>
                 <div class="listing-area" id="rdio_results">
-		    <p>No results found.</p>
                 </div><!--listing-area-->
             </div><!--content-->
 

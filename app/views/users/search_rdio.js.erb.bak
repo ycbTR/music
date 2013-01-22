@@ -13,5 +13,3 @@ $("#rdio_results").html("<ul id='rdio_result_list' class='result-list'></ul>");
                         </li>");
 <%end%>
 
-$('.listing-area p').ellipsis();
-$('.listing-area ul li a').ellipsis();

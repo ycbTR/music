@@ -12,6 +12,3 @@ $("#youtube_results").html("<ul id='youtube_result_list' class='result-list'></u
                             <div class='clear'></div>\
                         </li>");
  <%end%>
-
-$('.listing-area p').ellipsis();
-$('.listing-area ul li a').ellipsis();
