@@ -7,11 +7,14 @@ $("#rdio_results").html("<ul id='rdio_result_list' class='result-list'></ul>");
 <%end%>
 <%@playlist.each do |song| %>
  $("#rdio_result_list").append("<li>\
-                            <a href='<%=song['shortUrl']%>' target='m'><%=song['artist']%>-<%=song['name']%></a>\
-                            <p><%=song['album']%></p>\
+                            <a href='<%=song['shortUrl']%>' target='m' title='<%=song['artist']%>-<%=song['name']%>'><%=song['artist']%>-<%=song['name']%></a>\
+                            <p title='<%=song['album']%>'><%=song['album']%></p>\
                             <div class='clear'></div>\
                         </li>");
 <%end%>
 
 $('.listing-area p').ellipsis();
 $('.listing-area ul li a').ellipsis();
+
+$('.listing-area p').tooltip({"placement":"left","animation":true});
+$('.listing-area ul li a').tooltip({"placement":"left","animation":true});

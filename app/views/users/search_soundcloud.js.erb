@@ -7,11 +7,14 @@ $("#soundcloud_results").html("<ul id='soundcloud_result_list' class='result-lis
 <%end%>
 <%@playlist.each do |song| %>
  $("#soundcloud_result_list").append("<li>\
-                            <a href='<%=song['permalink_url']%>' target='m'><%=song['permalink']%></a>\
-                            <p><%=song['user']['permalink']%></p>\
+                            <a href='<%=song['permalink_url']%>' target='m' title='<%=song['permalink']%>'><%=song['permalink']%></a>\
+                            <p title='<%=song['user']['permalink']%>'><%=song['user']['permalink']%></p>\
                             <div class='clear'></div>\
                         </li>");
 <%end%>
 
 $('.listing-area p').ellipsis();
 $('.listing-area ul li a').ellipsis();
+
+$('.listing-area p').tooltip({"placement":"left","animation":true});
+$('.listing-area ul li a').tooltip({"placement":"left","animation":true});

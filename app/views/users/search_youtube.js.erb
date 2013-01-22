@@ -7,11 +7,14 @@ $("#youtube_results").html("<ul id='youtube_result_list' class='result-list'></u
 <%end%>
 <%@playlist.each do |song| %>
  $("#youtube_result_list").append("<li>\
-                            <a href='<%=song['link'][0]['href']%>' target='m'><%=song['title'][0]%></a>\
-                            <p><%=song['group'][0]['description'][0]['content']%></p>\
+                            <a href='<%=song['link'][0]['href']%>' target='m' title='<%=song['title'][0]%>'><%=song['title'][0]%></a>\
+                            <p title='<%=song['group'][0]['description'][0]['content']%>'><%=song['group'][0]['description'][0]['content']%></p>\
                             <div class='clear'></div>\
                         </li>");
  <%end%>
 
 $('.listing-area p').ellipsis();
 $('.listing-area ul li a').ellipsis();
+
+$('.listing-area p').tooltip({"placement":"left","animation":true});
+$('.listing-area ul li a').tooltip({"placement":"left","animation":true,"trigger":"click"});

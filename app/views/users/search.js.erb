@@ -7,7 +7,7 @@ $("#grooveshark_results").html("<ul id='grooveshark_result_list' class='result-l
 <%end%>
 <%@playlist.each do |song| %>
  $("#grooveshark_result_list").append("<li>\
-                            <a href='<%=song['Url']%>' target='m' title='<%=song['ArtistName']%>'><%=song['ArtistName']%> - <%=song['SongName']%></a>\
+                            <a href='<%=song['Url']%>' target='m' title='<%=song['ArtistName']%> - <%=song['SongName']%>'><%=song['ArtistName']%> - <%=song['SongName']%></a>\
                             <p title='<%=song['AlbumName']%>'><%=song['AlbumName']%></p>\
                             <div class='clear'></div>\
                         </li>");
@@ -15,3 +15,6 @@ $("#grooveshark_results").html("<ul id='grooveshark_result_list' class='result-l
 
 $('.listing-area p').ellipsis();
 $('.listing-area ul li a').ellipsis();
+
+$('.listing-area p').tooltip({"placement":"left","animation":true});
+$('.listing-area ul li a').tooltip({"placement":"left","animation":true});
