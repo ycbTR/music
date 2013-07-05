@@ -1,12 +1,12 @@
 $("#grooveshark_loading").css("display","none");
 $("#grooveshark_result_count").text("<%=@playlist.count if @playlist%> Results");
-<%if @playlist && @playlist.count > 0 %>
+<%if @playlist.count == 0 %>
 $("#grooveshark_results").html("<p>No results found.</p>");
 <%else%>
 $("#grooveshark_results").html("<ul id='grooveshark_result_list' class='result-list'></ul>");
 <%end%>
 <%@playlist.each do |song| %>
- $("#grooveshark_result_list").append("<li>\
+$("#grooveshark_result_list").append("<li>\
                             <a href='<%=song['Url']%>' target='m' title='<%=song['ArtistName']%> - <%=song['SongName']%>'><%=song['ArtistName']%> - <%=song['SongName']%></a>\
                             <p title='<%=song['AlbumName']%>'><%=song['AlbumName']%></p>\
                             <div class='clear'></div>\

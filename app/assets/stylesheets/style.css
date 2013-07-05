@@ -398,6 +398,8 @@ background-image: linear-gradient(to top, #FFFFFF 0%, #C4EFEC 100%);
 	float:left;
 	color:#14afef;
 	text-decoration:none;
+    word-wrap: break-word;
+    width: 320px;
 }
 .listing-area ul li a:hover{
 	color:#545454;
@@ -408,7 +410,19 @@ background-image: linear-gradient(to top, #FFFFFF 0%, #C4EFEC 100%);
 	font-family:Calibri, Arial, Helvetica, sans-serif;
 	color:#b0b0b0;
 	font-size:14px;
+    word-wrap: break-word;
+}
+.selected
+{
+    color: #e44029;
+    border-bottom: 1px solid #e44029;
+    padding-bottom: 14px;
 }
 
+.loading
+{
+    text-align:center;
+    margin-top:10px;
+}
 
 
