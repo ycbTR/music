@@ -17,8 +17,9 @@
 	<%= javascript_include_tag "jquery.ellipsis","bootstrap-tooltip" %>
 	<script>
 	$(document).ready(function(){
-		//$("html").niceScroll(); 
-		
+        //$.ajax({url:"/search?keyword="+$("#search-query").val()+"&type="+$("#type").val(),type:"POST"});
+		//$("html").niceScroll();
+
 
 		$(".top-nav ul li a").click(function(e){
 			$(".top-nav ul li a").removeClass("selected");
@@ -32,7 +33,7 @@
 			   $("#soundcloud").css("display","none");
 			   $("#youtube").css("display","none");
 			   $("#rdio").css("display","none");
-			   
+
 			   if($("#spotify").attr("searchkey")!=$("#search-query").val())
 			   {
 			      $("#spotify_loading").css("display","block");
@@ -50,7 +51,7 @@
 			   $("#soundcloud").css("display","none");
 			   $("#youtube").css("display","none");
 			   $("#rdio").css("display","none");
-			   
+
 			   if($("#grooveshark").attr("searchkey")!=$("#search-query").val())
 			   {
 			      $("#grooveshark_loading").css("display","block");
@@ -68,12 +69,12 @@
 			   $("#soundcloud").css("display","block");
 			   $("#youtube").css("display","none");
 			   $("#rdio").css("display","none");
-			   
+
 			   if($("#soundcloud").attr("searchkey")!=$("#search-query").val())
 			   {
 			       $("#soundcloud_loading").css("display","block");
 			       $.ajax({url:"/search_soundcloud?keyword="+$("#search-query").val(),type:"POST"});
-				
+
    			       $("#soundcloud").attr("searchkey",$("#search-query").val());
 			       //$('.listing-area p').ellipsis();
             		       //$('.listing-area ul li a').ellipsis();
@@ -86,7 +87,7 @@
 			   $("#soundcloud").css("display","none");
 			   $("#youtube").css("display","block");
 			   $("#rdio").css("display","none");
-			   
+
 			   if($("#youtube").attr("searchkey")!=$("#search-query").val())
 			   {
 			       $("#youtube_loading").css("display","block");
@@ -104,7 +105,7 @@
 			   $("#soundcloud").css("display","none");
 			   $("#youtube").css("display","none");
 			   $("#rdio").css("display","block");
-			   
+
 			   if($("#rdio").attr("searchkey")!=$("#search-query").val())
 			   {
 			       $("#rdio_loading").css("display","block");
@@ -115,28 +116,28 @@
 			       //$('.listing-area p').ellipsis();
             		       //$('.listing-area ul li a').ellipsis();
 			   }
-			   
+
 			}
 
-			
+
 
 			e.preventDefault();
 		});
 
 
-		<%if session[:keyword]%>
-		    
-		        $("#search-query").val("<%=session[:keyword]%>");
+		<% if session[:keyword]%>
+
+		    $("#search-query").val("<%=session[:keyword]%>");
 
 			$("#spotify_loading").css("display","block");
 			$.ajax({url:"/search_spotify?keyword="+$("#search-query").val(),type:"POST"});
 			$("#spotify").attr("searchkey",$("#search-query").val());
 
-		<%end%>
+		<% end%>
 
 		$(".navbar-form").submit(function(e){
 
-		        $(".listing-area").empty();
+		    $(".listing-area").empty();
 			$("#spotify").removeAttr("searchkey");
 			$("#grooveshark").removeAttr("searchkey");
 			$("#soundcloud").removeAttr("searchkey");

@@ -1,20 +1,21 @@
 $("#youtube_loading").css("display","none");
-$("#youtube_result_count").text("<%=@playlist.count%> Results");
-<%if @playlist.count == 0 %>
-$("#youtube_results").html("<p>No results found.</p>");
+$("#youtube_result_count").text("<%=@playlist.count if @playlist%> Results");
+<%if @playlist && @playlist.count > 0 %>
+
+    $("#youtube_results").html("<ul id='youtube_result_list' class='result-list'></ul>");
+    <%@playlist.each do |song| %>
+    $("#youtube_result_list").append("<li>\
+                                <a href='<%=song['link'][0]['href']%>' target='m' title='<%=song['title'][0]%>'><%=song['title'][0]%></a>\
+                                <p title='<%=song['group'][0]['description'][0]['content']%>'><%=song['group'][0]['description'][0]['content']%></p>\
+                                <div class='clear'></div>\
+                            </li>");
+    <%end%>
+
+    $('.listing-area p').ellipsis();
+    $('.listing-area ul li a').ellipsis();
+
+    $('.listing-area p').tooltip({"placement":"left","animation":true});
+    $('.listing-area ul li a').tooltip({"placement":"left","animation":true,"trigger":"click"});
 <%else%>
-$("#youtube_results").html("<ul id='youtube_result_list' class='result-list'></ul>");
+    $("#youtube_results").html("<p>No results found.</p>");
 <%end%>
-<%@playlist.each do |song| %>
- $("#youtube_result_list").append("<li>\
-                            <a href='<%=song['link'][0]['href']%>' target='m' title='<%=song['title'][0]%>'><%=song['title'][0]%></a>\
-                            <p title='<%=song['group'][0]['description'][0]['content']%>'><%=song['group'][0]['description'][0]['content']%></p>\
-                            <div class='clear'></div>\
-                        </li>");
- <%end%>
-
-$('.listing-area p').ellipsis();
-$('.listing-area ul li a').ellipsis();
-
-$('.listing-area p').tooltip({"placement":"left","animation":true});
-$('.listing-area ul li a').tooltip({"placement":"left","animation":true,"trigger":"click"});

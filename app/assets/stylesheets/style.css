@@ -54,8 +54,8 @@ table {
     font-family: 'MyriadProCondensed';
     src: url('font/myriadprocond-webfont.eot');
     src: url('font/myriadprocond-webfont.woff') format('woff'),
-	url('font/myriadprocond-webfont.ttf') format('truetype'), 
-	url('font/myriadprocond-webfont.svgz#MyriadProCondensed') format('svg'), 
+	url('font/myriadprocond-webfont.ttf') format('truetype'),
+	url('font/myriadprocond-webfont.svgz#MyriadProCondensed') format('svg'),
 	url('font/myriadprocond-webfont.svg#MyriadProCondensed') format('svg');
     font-weight: normal;
     font-style: normal;
@@ -63,15 +63,15 @@ table {
 @font-face {
     font-family: 'MyriadProBoldCondensed';
     src: url('font/myriadproboldcond-webfont.eot');
-    src: url('font/myriadproboldcond-webfont.woff') format('woff') 
-	url('font/myriadproboldcond-webfont.ttf') format('truetype'), 
-	url('font/myriadproboldcond-webfont.svgz#MyriadProBoldCondensed') format('svg'), 
+    src: url('font/myriadproboldcond-webfont.woff') format('woff')
+	url('font/myriadproboldcond-webfont.ttf') format('truetype'),
+	url('font/myriadproboldcond-webfont.svgz#MyriadProBoldCondensed') format('svg'),
 	url('font/myriadproboldcond-webfont.svg#MyriadProBoldCondensed') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 body{
-	background:#000 url(background.jpg) no-repeat top center;
+	background:#fff url(contentbg.png) repeat top center;
 	font-size:100%;
     font-family:Georgia, "Times New Roman", Times, serif;
 	color:#000;
@@ -92,20 +92,12 @@ body{
 }
 #header{
 	height:auto;
+	margin-bottom:15px;
 }
 #logo{
-	margin: 9% auto 50px;
-	width:439px;
+	margin: 5% auto 35px;
+	width:462px;
 	height:auot;
-}
-#logo h2{
-	font-family:Georgia, "Times New Roman", Times, serif;
-	font-size:24px;
-	font-weight:normal;
-	font-style:italic;
-	color:#fff;
-	text-align:center;
-	margin:20px 0 0;
 }
 .search_box{
 	background:url(search_box.png) no-repeat;
@@ -140,17 +132,15 @@ body{
 	width:40px;
 }
 #footer{
-	background:url(footer-bg.png) repeat top center;
-	padding:32px 0 30px;
-	border-top:1px solid #1d1d1d;
-	border-bottom:1px solid #1d1d1d;
+	padding:10px 0 30px;
+	/*border-top:1px solid #1d1d1d;*/
+	/*border-bottom:1px solid #1d1d1d;*/
 	margin-bottom:20px;
 }
 .logo_holder{
-	width:540px;
+	width:295px;
 	margin:0 auto;
-	border-bottom:1px solid #000000;
-	padding-bottom:30px;
+	padding-top:10px;
 }
 .logo_holder ul{
 	list-style:none;
@@ -164,19 +154,29 @@ body{
 	margin:0 auto;
 	border-top:1px solid #1d1d1d;
 }
-.social ul{
+.social_click{
+	width:340px;
+	margin:0 auto;
+	text-align:center;
+	padding-top:30px;
+}
+.social_click h5{
+	font-family: Myriad Pro;
+	font-size:18px;
+	color:#1f2120;
+	text-transform:uppercase;
+}
+.f_social{
+	width:150px;
+	margin:0 auto;
+	text-align:center;
+}
+.f_social ul{
 	list-style:none;
 }
-.social ul li{
+.f_social ul li{
 	float:left;
 	margin:25px 8px 0;
-}
-.social ul li.stay{
-	font-size:18px;
-	color:#fff;
-	text-transform:uppercase;
-	padding:10px 0;
-	margin-right:94px;
 }
 a.fb{
 	display:inline-block;
@@ -200,28 +200,6 @@ a.twt:hover{
 	width:34px;
 	height:34px;
 }
-a.drb{
-	display:inline-block;
-	background:url(social3.png) no-repeat;
-	width:33px;
-	height:34px;
-}
-a.drb:hover{
-	background:url(social3_hover.png) no-repeat;
-	width:33px;
-	height:34px;
-}
-a.slv{
-	display:inline-block;
-	background:url(social4.png) no-repeat;
-	width:33px;
-	height:34px;
-}
-a.slv:hover{
-	background:url(social4_hover.png) no-repeat;
-	width:33px;
-	height:34px;
-}
 a.gplus{
 	display:inline-block;
 	background:url(google.png) no-repeat;
@@ -233,56 +211,49 @@ a.gplus:hover{
 	width:34px;
 	height:34px;
 }
-a.sll{
-	display:inline-block;
-	background:url(social6.png) no-repeat;
-	width:33px;
-	height:34px;
-}
-a.sll:hover{
-	background:url(social6_hover.png) no-repeat;
-	width:33px;
-	height:34px;
-}
+
 /*-----------------------------------List Page----------------------------------*/
 #header_inner{
 	height:150px;
-	background:url(inner-header.jpg) no-repeat top center;
+	/* IE10 Consumer Preview */ 
+background-image: -ms-linear-gradient(bottom, #FFFFFF 0%, #C4EFEC 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-linear-gradient(bottom, #FFFFFF 0%, #C4EFEC 100%);
+
+/* Opera */ 
+background-image: -o-linear-gradient(bottom, #FFFFFF 0%, #C4EFEC 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #FFFFFF), color-stop(1, #C4EFEC));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(bottom, #FFFFFF 0%, #C4EFEC 100%);
+
+/* W3C Markup, IE10 Release Preview */ 
+background-image: linear-gradient(to top, #FFFFFF 0%, #C4EFEC 100%);
 }
 #logo_inner{
 	float:left;
-	margin:45px 0 0;
+	margin:15px 0 0;
 }
-#logo_inner h2{
-	color:#646464;
-    font-family: Georgia,"Times New Roman",Times,serif;
-    font-size: 16px;
-    font-style: italic;
-    font-weight: normal;
-    left: 85px;
-    margin: 15px 0 0;
-    position: absolute;
-    text-align: left;
-    top: 82px;
-	letter-spacing:1.5px;
-	
-}
+
 .search_box_inner{
 	float:right;
 	background:url(search_box.png) no-repeat;
-	width:580px;
+	width:534px;
 	height:95px;
 	margin:50px 0 0;
 }
 .list_body{
 	min-height:700px;
-	background:url(list-page-bg.png) repeat;
+	background: #fff url(contentbg.png) repeat;
 	padding-bottom:22px;
 }
 #footer_inner{
 	height:120px;
 	background:url(list-page-bg.png) repeat;
-	padding:25px 0 20px;
+	padding:10px 0 20px;
 }
 .logo_holder_inner{
 	background:url(logo_holder_inner.png) no-repeat;
@@ -298,6 +269,51 @@ a.sll:hover{
 	float:left;
 	margin:0 12px;
 }
+
+
+
+
+/*-----------------------------------Listing Pages----------------------------------*/
+#header_listing{
+	height:150px;
+	background:url(pw_maze_white.png) repeat;
+	border-bottom:1px solid #1d1d1d;
+}
+.list_body_two{
+	min-height:700px;
+	background: #fff url(contentbg.png) repeat;
+	padding-bottom:22px;
+}
+
+.heading_page{
+	padding:10px 15px;
+	border-top:1px solid #d4d4d4;
+	border-bottom:1px solid #d4d4d4;
+	background:#fff;
+	border-radius:5px 5px 0 0;
+}
+.heading_page h2{
+	float:left;
+	font-size:24px;
+    font-family: 'MyriadProBoldCondensed';
+	text-transform:uppercase;
+	color:#545454;
+	background:url(logo3.png) no-repeat left;
+	padding:5px 0 5px 75px;
+	height:27px;
+	font-weight:bold;
+}
+.heading_page p{
+	float:right;
+	font-family:Calibri, Arial, Helvetica, sans-serif;
+	color:#adadad;
+	font-size:14px;
+	padding-top:12px;
+}
+.heading_page p span{
+	color:#e03f29;
+}
+
 /*-----------------------------------top-navigation----------------------------------*/
 .top-nav{
 	border-bottom:1px solid #e4e4e4;
@@ -320,7 +336,8 @@ a.sll:hover{
 	position:relative;
 }
 
-.top-nav ul li a:hover{
+.top-nav ul li a:hover,
+.top-nav ul li a.active{
 	color:#e44029;
 	border-bottom:1px solid #e44029;
 	padding-bottom:14px;
@@ -332,6 +349,7 @@ a.sll:hover{
 	border-radius:5px;
 	margin-top:22px;
 	background:url(contentbg.png) repeat;
+	margin-bottom:20px;
 }
 .heading{
 	padding:10px 15px;
@@ -380,7 +398,6 @@ a.sll:hover{
 	float:left;
 	color:#14afef;
 	text-decoration:none;
-	width:350px;
 }
 .listing-area ul li a:hover{
 	color:#545454;
@@ -394,16 +411,4 @@ a.sll:hover{
 }
 
 
-.selected
-{
-	color: #e44029;
-	border-bottom: 1px solid #e44029;
-	padding-bottom: 14px;
-}
 
-
-.loading
-{
-	text-align:center;
-	margin-top:10px;
-}

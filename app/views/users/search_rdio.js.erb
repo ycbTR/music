@@ -1,12 +1,10 @@
 $("#rdio_loading").css("display","none");
-$("#rdio_result_count").text("<%=@playlist.count%> Results");
-<%if @playlist.count == 0 %>
-$("#rdio_results").html("<p>No results found.</p>");
-<%else%>
+$("#rdio_result_count").text("<%=@playlist.count if @playlist%> Results");
+<%if @playlist && @playlist.count > 0 %>
 $("#rdio_results").html("<ul id='rdio_result_list' class='result-list'></ul>");
-<%end%>
+
 <%@playlist.each do |song| %>
- $("#rdio_result_list").append("<li>\
+$("#rdio_result_list").append("<li>\
                             <a href='<%=song['shortUrl']%>' target='m' title='<%=song['artist']%>-<%=song['name']%>'><%=song['artist']%>-<%=song['name']%></a>\
                             <p title='<%=song['album']%>'><%=song['album']%></p>\
                             <div class='clear'></div>\
@@ -18,3 +16,7 @@ $('.listing-area ul li a').ellipsis();
 
 $('.listing-area p').tooltip({"placement":"left","animation":true});
 $('.listing-area ul li a').tooltip({"placement":"left","animation":true});
+<%else%>
+$("#rdio_results").html("<p>No results found.</p>");
+
+<%end%>

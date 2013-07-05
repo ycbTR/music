@@ -1,17 +1,15 @@
 $("#spotify_loading").css("display","none");
-$("#spotify_result_count").text("<%=@playlist.count%> Results");
-<%if @playlist.count == 0 %>
-$("#spotify_results").html("<p>No results found.</p>");
-<%else%>
+$("#spotify_result_count").text("<%=@playlist.count if @playlist%> Results");
+<%if @playlist && @playlist.count > 0 %>
 $("#spotify_results").html("<ul id='spotify_result_list' class='result-list'></ul>");
-<%end%>
 <%@playlist.each do |song| %>
- $("#spotify_result_list").append("<li>\
+
+$("#spotify_result_list").append("<li>\
                             <a href='http://open.spotify.com/track/<%=song['href'].split(":")[2]%>' target='m' title='<%=song['artists'][0]['name']%> - <%=song['name']%>'><%=song['artists'][0]['name']%> - <%=song['name']%></a>\
                             <p title='<%=song['album']['name']%>'><%=song['album']['name']%></p>\
                             <div class='clear'></div>\
                         </li>");
- 
+
 
 <%end%>
 
@@ -20,3 +18,9 @@ $('.listing-area ul li a').ellipsis();
 
 $('.listing-area p').tooltip({"placement":"left","animation":true});
 $('.listing-area ul li a').tooltip({"placement":"left","animation":true});
+<%else%>
+
+$("#spotify_results").html("<p>No results found.</p>");
+
+
+<%end%>

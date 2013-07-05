@@ -1,12 +1,11 @@
 $("#soundcloud_loading").css("display","none");
-$("#soundcloud_result_count").text("<%=@playlist.count%> Results");
-<%if @playlist.count == 0 %>
-$("#soundcloud_results").html("<p>No results found.</p>");
-<%else%>
+$("#soundcloud_result_count").text("<%=  @playlist.count if @playlist %> Results");
+<%if @playlist && @playlist.count > 0 %>
+
 $("#soundcloud_results").html("<ul id='soundcloud_result_list' class='result-list'></ul>");
-<%end%>
+
 <%@playlist.each do |song| %>
- $("#soundcloud_result_list").append("<li>\
+$("#soundcloud_result_list").append("<li>\
                             <a href='<%=song['permalink_url']%>' target='m' title='<%=song['permalink']%>'><%=song['permalink']%></a>\
                             <p title='<%=song['user']['permalink']%>'><%=song['user']['permalink']%></p>\
                             <div class='clear'></div>\
@@ -18,3 +17,8 @@ $('.listing-area ul li a').ellipsis();
 
 $('.listing-area p').tooltip({"placement":"left","animation":true});
 $('.listing-area ul li a').tooltip({"placement":"left","animation":true});
+
+
+<%else%>
+$("#soundcloud_results").html("<p>No results found.</p>");
+<%end%>
