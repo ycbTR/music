@@ -1,0 +1,31 @@
+<% @playlist.each do |song| %>
+    <% song_name = song['title'][0] %>
+    <% song_id = song['id'].first.split(':').last %>
+
+    <li>
+
+
+      <%= link_to song_name, "#{song['permalink_url']}",
+                  :data => {
+                          "song-name" => song_name,
+                          "autoplay-url" => "http://www.youtube.com/embed/#{song_id}?autoplay=1",
+                          "url" => song['link'][0]['href'],
+                          "album" => song['group'][0]['description'][0]['content'],
+                          "popularity" => song['popularity'],
+                          "api-name" => "youtube",
+                          "length" => song['length'],
+                          "artist" => song['title'][0]
+
+                  },
+                  :class => "play-track"
+      %>
+
+
+      <p title='<%= song['group'][0]['description'][0]['content'] %>'><%= song['group'][0]['description'][0]['content'] %></p>
+
+      <div class='clear'></div>
+
+    </li>
+
+<% end %>
+

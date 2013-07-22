@@ -1,0 +1,22 @@
+<% @playlist.each do |song| %>
+    <% song_name = "#{song['artists'][0]['name']} - #{song['name']}" %>
+    <li>
+      <%= link_to song_name, "#{song['href']}",
+                  :data => {
+                          "song-name" => song_name,
+                          "autoplay-url" => "https://embed.spotify.com/?uri=#{song["href"]}",
+                          "url" => song["href"],
+                          "album" => song['album']['name'],
+                          "popularity" => song['popularity'],
+                          "api-name" => "spotify",
+                          "length" => song['length'],
+                          "artist" => song['artists'][0]['name']
+
+                  },
+                  :class => "play-track"
+      %>
+      <p title='<%= song['album']['name'] %>'><%= song['album']['name'] %></p>
+
+      <div class='clear'></div>
+    </li>
+<% end %>

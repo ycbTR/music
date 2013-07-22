@@ -1,0 +1,28 @@
+<% @playlist.each do |song| %>
+    <% song_name = song['title'] %>
+
+    <li>
+
+    <%= link_to song_name, "#{song['permalink_url']}",
+                :data => {
+                        "original-title" => song_name,
+                        "autoplay-url" => "http://w.soundcloud.com/player/?url=#{song['uri']}&color=ff6600&auto_play=true&show_artwork=true",
+                        "url" => song['permalink'],
+                        "album" => song['permalink'],
+                        "popularity" => song['popularity'],
+                        "api-name" => "soundcloud",
+                        "length" => song['duration'],
+                        "artist" => song['permalink']
+
+                },
+                :class => "play-track"
+    %>
+
+  <p title='<%=song['user']['permalink']%>'><%=song['user']['permalink']%></p>
+
+      <div class='clear'></div>
+
+</li>
+
+<% end %>
+

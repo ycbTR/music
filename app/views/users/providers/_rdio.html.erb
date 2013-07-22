@@ -1,0 +1,29 @@
+<% @playlist.each do |song| %>
+    <% song_name = song['name'] %>
+    <% song_id = song['shortUrl'].split('/').last %>
+
+    <li>
+
+    <%= link_to song_name, "#{song['shortUrl']}",
+                  :data => {
+                          "original-title" => song_name,
+                          "autoplay-url" => "http://rd.io/e/#{song_id}?autoplay=1",
+                          "url" => song['shortUrl'],
+                          "album" => song['album'],
+                          "popularity" => song['popularity'],
+                          "api-name" => "rdio",
+                          "length" => song['length'],
+                          "artist" => song['name']
+
+                  },
+                  :class => "play-track"
+      %>
+
+      <p title='<%=song['album']%>'><%=song['album']%></p>
+
+      <div class='clear'></div>
+
+    </li>
+
+<% end %>
+
