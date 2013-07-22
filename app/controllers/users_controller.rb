@@ -4,8 +4,9 @@ require "xmlsimple"
 
 class UsersController < ApplicationController
 
+  before_filter :set_provider
   # layout "back_layout", :only=>[:index]
-  layout "front_layout", :only=>[:home]
+  layout "front_layout", :only => [:home]
 
   def home
 
@@ -30,11 +31,11 @@ class UsersController < ApplicationController
       puts "DATA #{data}"
       @playlist = JSON.parse(data)
       puts "PARSED DATA #{@playlist}"
-    rescue Exception=>e
+    rescue Exception => e
       puts "EXCEPTION :: #{e.message}"
     end
     respond_to do |format|
-      format.js
+      format.js { render 'common_response' }
     end
 
   end
@@ -48,12 +49,13 @@ class UsersController < ApplicationController
       puts "DATA #{data}"
       @playlist = JSON.parse(data)['tracks']
       puts "PARSED DATA #{@playlist}"
-    rescue Exception=>e
+    rescue Exception => e
       puts "EXCEPTION :: #{e.message}"
     end
     respond_to do |format|
-      format.js
+      format.js { render 'common_response' }
     end
+
   end
 
 
@@ -66,16 +68,16 @@ class UsersController < ApplicationController
       client = Soundcloud.new(:client_id => 'f7e97d20f4e0a7044abfb7a4e79700f0')
 
       # find all sounds of buskers licensed under 'creative commons share alike'
-      tracks = client.get('/tracks', :q => keyword,:limit => 100, :licence => 'cc-by-sa')
+      tracks = client.get('/tracks', :q => keyword, :limit => 100, :licence => 'cc-by-sa')
 
       puts "TRACKS #{tracks}"
       @playlist = tracks #JSON.parse(tracks)
       puts "PARSED DATA #{@playlist}"
-    rescue Exception=>e
+    rescue Exception => e
       puts "EXCEPTION :: #{e.message}"
     end
     respond_to do |format|
-      format.js
+      format.js { render 'common_response' }
     end
   end
 
@@ -87,16 +89,16 @@ class UsersController < ApplicationController
       puts "AAAAAAAAAAAAA"
       rdio = Rdio.new(["cvswsfupv9d2svsfm936mxjs", "fG5t3EF7eG"])
       puts "KKKKKKKKKKKKKKK"
-      data =  rdio.call('search', {'query'=>keyword,'types'=>'Artist,Album,Track,Playlist','count'=>100})
+      data = rdio.call('search', {'query' => keyword, 'types' => 'Artist,Album,Track,Playlist', 'count' => 100})
       puts "BBBBBBBBBBBB"
       @playlist = data['result']['results']
       puts "CCCCCCCCCCCCCCCCC #{@playlist}"
       puts "PARSED DATA #{@playlist}"
-    rescue Exception=>e
+    rescue Exception => e
       puts "EXCEPTION :: #{e.message}"
     end
     respond_to do |format|
-      format.js
+      format.js { render 'common_response' }
     end
   end
 
@@ -111,13 +113,21 @@ class UsersController < ApplicationController
       entries=open(uri).read
       puts "entries #{entries}"
       @playlist = XmlSimple.xml_in(entries)["entry"]
-    rescue Exception=>e
+    rescue Exception => e
       puts "EXCEPTION :: #{e.message}"
     end
     respond_to do |format|
-      format.js
+      format.js { render 'common_response' }
     end
 
+  end
+
+
+  private
+
+  def set_provider
+    @provider = params[:action].split('_').last
+    @provider = "grooveshark" if @provider == 'search'
   end
 
 end

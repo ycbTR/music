@@ -1,12 +1,12 @@
-$("#spotify_loading").css("display", "none");
-$("#spotify_result_count").text("<%=@playlist.count if @playlist%> Results");
+$("#<%= @provider %>_loading").css("display", "none");
+$("#<%= @provider %>_result_count").text("<%=@playlist.count if @playlist%> Results");
 <%if @playlist.count == 0 %>
-$("#spotify_results").html("<p>No results found.</p>");
+$("#<%= @provider %>_results").html("<p>No results found.</p>");
 <%else%>
-$("#spotify_results").html("<ul id='spotify_result_list' class='result-list'></ul>");
+$("#<%= @provider %>_results").html("<ul id='<%= @provider %>_result_list' class='result-list'></ul>");
 <%end%>
 
-$("#spotify_result_list").append("<%= escape_javascript(render :partial => "users/providers/#{params[:action].split('_').last}") %>");
+$("#<%= @provider %>_result_list").append("<%= escape_javascript(render :partial => "users/providers/#{@provider}") %>");
 
 
 $('.listing-area p').ellipsis();
@@ -15,5 +15,3 @@ $('.listing-area ul li a').ellipsis();
 $('.listing-area p').tooltip({"placement": "left", "animation": true});
 $('.listing-area ul li a').tooltip({"placement": "left", "animation": true});
 
-
-//<a href="spotify:track:29AaRcJ0RpdA5uE1RJegr5" data-autoplayurl="https://embed.spotify.com/?uri=spotify:track:29AaRcJ0RpdA5uE1RJegr5" target="m">Mustafa Sandal - Geçmiş Olsun</a>
