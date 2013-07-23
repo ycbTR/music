@@ -1,3 +1,4 @@
+current_query = $('#search-query').val();
 $("#<%= @provider %>_loading").css("display", "none");
 $("#<%= @provider %>_result_count").text("<%=@playlist.count if @playlist%> Results");
 <%if @playlist.count == 0 %>
@@ -18,5 +19,5 @@ $('.listing-area ul li a').tooltip({"placement": "left", "animation": true});
 
 
 <% if !params[:track_key].blank? %>
-      $('.<%= params[:track_key] %>').first().click();
+$('.<%= params[:track_key] %>').first().click();
 <% end %>
