@@ -2,6 +2,10 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
 <head>
   <title>music search engine</title>
+  <meta property="fb:app_id" content="555621547808910">
+  <meta property="og:site_name" content="SoundSeekr">
+  <meta property="og:image" content="http://soundseekr.com/assets/logo_2.png">
+  <meta property="og:title" content="SoundSeekr | Find any sound !">
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +18,7 @@
   <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
+  <script src="//connect.facebook.net/en_US/all.js"></script>
   <%= javascript_include_tag "jquery.ellipsis", "bootstrap-tooltip", "player" %>
   <script type="text/javascript">
       $(document).ready(function () {
@@ -35,7 +40,7 @@
 
                   if ($("#spotify").attr("searchkey") != $("#search-query").val()) {
                       $("#spotify_loading").css("display", "block");
-                      $.ajax({url: "/search_spotify?keyword=" + $("#search-query").val(), type: "POST"});
+                      $.ajax({url: "/search_spotify?track_key=<%=params[:track_key]%>&keyword=" + $("#search-query").val(), type: "POST"});
 
                       $("#spotify").attr("searchkey", $("#search-query").val());
 //			      $('.listing-area p').ellipsis();
@@ -51,7 +56,7 @@
 
                   if ($("#grooveshark").attr("searchkey") != $("#search-query").val()) {
                       $("#grooveshark_loading").css("display", "block");
-                      $.ajax({url: "/search?keyword=" + $("#search-query").val(), type: "POST"});
+                      $.ajax({url: "/search?track_key=<%=params[:track_key]%>&keyword=" + $("#search-query").val(), type: "POST"});
 
                       $("#grooveshark").attr("searchkey", $("#search-query").val());
 //			      $('.listing-area p').ellipsis();
@@ -67,7 +72,7 @@
 
                   if ($("#soundcloud").attr("searchkey") != $("#search-query").val()) {
                       $("#soundcloud_loading").css("display", "block");
-                      $.ajax({url: "/search_soundcloud?keyword=" + $("#search-query").val(), type: "POST"});
+                      $.ajax({url: "/search_soundcloud?track_key=<%=params[:track_key]%>&keyword=" + $("#search-query").val(), type: "POST"});
 
                       $("#soundcloud").attr("searchkey", $("#search-query").val());
 //			       $('.listing-area p').ellipsis();
@@ -83,7 +88,7 @@
 
                   if ($("#youtube").attr("searchkey") != $("#search-query").val()) {
                       $("#youtube_loading").css("display", "block");
-                      $.ajax({url: "/search_youtube?keyword=" + $("#search-query").val(), type: "POST"});
+                      $.ajax({url: "/search_youtube?track_key=<%=params[:track_key]%>&keyword=" + $("#search-query").val(), type: "POST"});
 
                       $("#youtube").attr("searchkey", $("#search-query").val());
 //			       $('.listing-area p').ellipsis();
@@ -99,7 +104,7 @@
 
                   if ($("#rdio").attr("searchkey") != $("#search-query").val()) {
                       $("#rdio_loading").css("display", "block");
-                      $.ajax({url: "/search_rdio?keyword=" + $("#search-query").val(), type: "POST"});
+                      $.ajax({url: "/search_rdio?track_key=<%=params[:track_key]%>&keyword=" + $("#search-query").val(), type: "POST"});
 
                       $("#rdio").attr("searchkey", $("#search-query").val());
 
@@ -119,7 +124,7 @@
           $("#search-query").val("<%=session[:keyword]%>");
 
           $("#spotify_loading").css("display", "block");
-          $.ajax({url: "/search_spotify?keyword=" + $("#search-query").val(), type: "POST"});
+          $.ajax({url: "/search_spotify?track_key=<%=params[:track_key]%>&keyword=" + $("#search-query").val(), type: "POST"});
           $("#spotify").attr("searchkey", $("#search-query").val());
 
           <% end%>
@@ -135,27 +140,27 @@
 
               if ($("#mnuSpotify").hasClass("selected")) {
                   $("#spotify_loading").css("display", "block");
-                  $.ajax({url: "/search_spotify?keyword=" + $("#search-query").val(), type: "POST"});
+                  $.ajax({url: "/search_spotify?track_key=<%=params[:track_key]%>&keyword=" + $("#search-query").val(), type: "POST"});
                   $("#spotify").attr("searchkey", $("#search-query").val());
               }
               else if ($("#mnuGrooveshark").hasClass("selected")) {
                   $("#grooveshark_loading").css("display", "block");
-                  $.ajax({url: "/search?keyword=" + $("#search-query").val(), type: "POST"});
+                  $.ajax({url: "/search?track_key=<%=params[:track_key]%>&keyword=" + $("#search-query").val(), type: "POST"});
                   $("#grooveshark").attr("searchkey", $("#search-query").val());
               }
               else if ($("#mnuSoundcloud").hasClass("selected")) {
                   $("#soundcloud_loading").css("display", "block");
-                  $.ajax({url: "/search_soundcloud?keyword=" + $("#search-query").val(), type: "POST"});
+                  $.ajax({url: "/search_soundcloud?track_key=<%=params[:track_key]%>&keyword=" + $("#search-query").val(), type: "POST"});
                   $("#soundcloud").attr("searchkey", $("#search-query").val());
               }
               else if ($("#mnuYoutube").hasClass("selected")) {
                   $("#youtube_loading").css("display", "block");
-                  $.ajax({url: "/search_youtube?keyword=" + $("#search-query").val(), type: "POST"});
+                  $.ajax({url: "/search_youtube?track_key=<%=params[:track_key]%>&keyword=" + $("#search-query").val(), type: "POST"});
                   $("#youtube").attr("searchkey", $("#search-query").val());
               }
               else if ($("#mnuRdio").hasClass("selected")) {
                   $("#rdio_loading").css("display", "block");
-                  $.ajax({url: "/search_rdio?keyword=" + $("#search-query").val(), type: "POST"});
+                  $.ajax({url: "/search_rdio?track_key=<%=params[:track_key]%>&keyword=" + $("#search-query").val(), type: "POST"});
                   $("#rdio").attr("searchkey", $("#search-query").val());
               }
               e.preventDefault();

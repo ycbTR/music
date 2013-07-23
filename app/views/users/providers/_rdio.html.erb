@@ -6,17 +6,18 @@
 
     <%= link_to song_name, "#{song['shortUrl']}",
                   :data => {
-                          "original-title" => song_name,
+                          "song-name" => song_name,
                           "autoplay-url" => "http://rd.io/e/#{song_id}?autoplay=1",
                           "url" => song['shortUrl'],
                           "album" => song['album'],
                           "popularity" => song['popularity'],
                           "api-name" => "rdio",
                           "length" => song['length'],
-                          "artist" => song['name']
+                          "artist" => song['name'],
+                          "key" => song_id
 
                   },
-                  :class => "play-track"
+                  :class => "play-track #{song_id}"
       %>
 
       <p title='<%=song['album']%>'><%=song['album']%></p>

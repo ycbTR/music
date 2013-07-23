@@ -14,10 +14,11 @@
                           "popularity" => song['popularity'],
                           "api-name" => "youtube",
                           "length" => song['length'],
-                          "artist" => song['title'][0]
+                          "artist" => song['title'][0],
+                          "key" => song_id
 
                   },
-                  :class => "play-track"
+                  :class => "play-track #{song_id}"
       %>
 
 

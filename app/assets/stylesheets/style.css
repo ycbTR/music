@@ -475,7 +475,7 @@ background-image: linear-gradient(to top, #FFFFFF 0%, #C4EFEC 100%);
     line-height: 31px;
     height: 31px;
     box-sizing: border-box;
-    opacity: 0.25;
+    opacity: 0.5;
     -webkit-transition: opacity 0.5s linear;
     -moz-transition: opacity 0.5s linear;
 }
@@ -537,3 +537,36 @@ background-image: linear-gradient(to top, #FFFFFF 0%, #C4EFEC 100%);
 }
 /*Player End*/
 
+/*Social Shares*/
+.song-name {
+    vertical-align: top;
+}
+
+#socialHolder {
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+#facebookShare {
+    background: url("share.png") no-repeat scroll 0px 0px transparent;
+    display: inline-block;
+    height: 33px;
+    width: 35px;
+    cursor: pointer;
+}
+
+#facebookShare {
+    background-position: -35px 0px;
+}
+
+#facebookShare:hover {
+    background-position: -35px -33px;
+}
+
+#socialHolder #new {
+    position: absolute;
+    top: -48px;
+    right: 66px;
+}
+
+/*Social Shares*/

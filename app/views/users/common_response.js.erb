@@ -15,3 +15,8 @@ $('.listing-area ul li a').ellipsis();
 $('.listing-area p').tooltip({"placement": "left", "animation": true});
 $('.listing-area ul li a').tooltip({"placement": "left", "animation": true});
 
+
+
+<% if !params[:track_key].blank? %>
+      $('.<%= params[:track_key] %>').first().click();
+<% end %>

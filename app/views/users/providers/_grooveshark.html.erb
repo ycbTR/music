@@ -10,10 +10,11 @@
                           "popularity" => song['popularity'],
                           "api-name" => "grooveshark",
                           "length" => song['length'],
-                          "artist" => song['ArtistName']
+                          "artist" => song['ArtistName'],
+                          "key" => song['SongID']
 
                   },
-                  :class => "play-track"
+                  :class => "play-track #{song['SongID']}"
       %>
       <p title='<%= song['AlbumName'] %>'><%= song['AlbumName'] %></p>
 

@@ -147,3 +147,10 @@
 </div><!--list_body-->
 <%= render 'layouts/footer' %>
 <%= render :partial => "player" %>
+
+<script>
+    current_query = '<%= session[:keyword] %>';
+    $(function () {
+        $('#mnu' + '<%= params[:provider].try(:titleize) %>').click();
+    });
+</script>

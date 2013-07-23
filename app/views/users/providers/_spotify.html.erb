@@ -1,5 +1,6 @@
 <% @playlist.each do |song| %>
     <% song_name = "#{song['artists'][0]['name']} - #{song['name']}" %>
+    <% song_id = song['href'].split(':').last %>
     <li>
       <%= link_to song_name, "#{song['href']}",
                   :data => {
@@ -10,10 +11,11 @@
                           "popularity" => song['popularity'],
                           "api-name" => "spotify",
                           "length" => song['length'],
-                          "artist" => song['artists'][0]['name']
+                          "artist" => song['artists'][0]['name'],
+                          "key" => song_id
 
                   },
-                  :class => "play-track"
+                  :class => "play-track #{song_id}"
       %>
       <p title='<%= song['album']['name'] %>'><%= song['album']['name'] %></p>
 

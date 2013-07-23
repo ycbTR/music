@@ -10,9 +10,9 @@ var Player = {
         $('.playContainer .minimizeButton').bind('click', function () {
             $('.playContainer').toggleClass('minimized');
         });
-        this.playheaderTemplate = $('.playHeader .info');
+        this.playheaderTemplate = $('.playHeader .song-name');
         this.$playContainer = $('.playContainer');
-        this.$playHeaderInfo = $('.playHeader .info');
+        this.$playHeaderInfo = $('.playHeader .song-name');
         this.$playContainerSpacer = $('.playContainerSpacer');
     },
 
@@ -56,28 +56,59 @@ var Player = {
     }
 };
 
-function Track(artist, album, url, autoPlayUrl, apiName, songName) {
+function Track(artist, album, url, autoPlayUrl, apiName, songName, thumbnail, key) {
     this.artist = artist || '';
     this.album = album || '';
     this.url = url || '';
     this.autoPlayUrl = autoPlayUrl || '';
-    this.apiName = apiName;
-    this.songName = songName;
+    this.apiName = apiName || '';
+    this.songName = songName || '';
+    this.thumbnail = thumbnail || 'http://soundseekr.com/assets/logo_2.png';
+    this.key = key || '';
 }
 
 
+
+function postToFeed() {
+
+    var obj = {
+        method: 'feed',
+        link: 'http://soundseekr.com/musicmasti?search_fild=' + current_query + '&track_key=' + current_track.key + '&provider=' + current_track.apiName,
+        display: 'dialog',
+        picture: current_track.thumbnail,
+        name: "SoundSeekr | " + current_track.songName,
+        description: "Get the links to listen to '" + current_track.songName + "' on http://soundseekr.com (Find any sound)",
+        actions: [
+            { name: 'Find any sound !', link: 'http://soundseekr.com' }
+        ]
+    };
+
+    function callback(response) {
+    }
+
+    FB.ui(obj, callback);
+}
+;
+window.fbAsyncInit = function () {
+    FB.init({ appId: '555621547808910', cookie: true, status: true, xfbml: true });
+};
+
 $(function () {
+    current_track = new Track();
     Player.init();
     $('.play-track').live('click', function (e) {
         e.preventDefault();
         var el = $(this);
-        Player.playTrack(new Track(
+        current_track = new Track(
             el.data('artist'),
             el.data('album'),
             el.data('href'),
             el.data("autoplayUrl"),
             el.data('apiName'),
-            el.data('songName')
-        ))
+            el.data('songName'),
+            el.data('thumbnail'),
+            el.data('key')
+        )
+        Player.playTrack(current_track)
     });
 });
